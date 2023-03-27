@@ -1,9 +1,22 @@
 // Testing requests
 
-// GET all customers
 GET http://localhost:3000/customers
 
 ###
 
-// GET one customer
 GET http://localhost:3000/customers/1
+
+###
+
+POST http://localhost:3000/customers
+Content-Type: application/json
+
+{
+    "name": "Kalle Asiakas",
+    "dateOfBirth": "2000-03-25",
+    "joiningDate": "2022-07-23",
+    "phoneNumber": "0947504723",
+    "email": "kalle.asiakas@email.net",
+    "address": "Asiakkaankatu 1",
+    "membership": true
+}
