@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     }
 })
 
-// Get one customer (in progress)
-router.get('/:id', (req, res) => {
-    res.send(req.params.id)
+// Get one customer
+router.get('/:id', getCustomer, (req, res) => {
+    res.send(res.customer)
 })
 
 // Creating new customer
@@ -37,13 +37,35 @@ router.post('/', async (req, res) => {
 })
 
 // Updating existing customer (in progress)
-router.patch('/:id', (req, res) => {
+router.patch('/:id', getCustomer, (req, res) => {
     
 })
 
 // Deleting one customer (in progress)
-router.delete('/:id', (req, res) => {
-    
+router.delete('/:id', getCustomer, async (req, res) => {
+    try {
+        await res.customer.remove()
+        res.json({ message: 'Deleted customer' })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 })
+
+
+// Middleware
+async function getCustomer(req, res, next) {
+    let customer
+    try {
+        customer = await Customer.findById(req.params.id)
+        if (customer == null) {
+            return res.status(404).json({ message: 'Cannot find customer'})
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+
+    res.customer = customer
+    next()
+}
 
 module.exports = router
