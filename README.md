@@ -29,3 +29,10 @@ Content-Type: application/json
     "address": "Asiakkaankatu 1",
     "membership": true
 }
+
+PATCH http://localhost:3000/customers/642182a85caa31e1771adf4d
+Content-Type: application/json
+
+{
+    "name": "Essi Ostaja"
+}
