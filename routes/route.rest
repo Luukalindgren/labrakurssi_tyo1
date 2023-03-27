@@ -1,15 +1,16 @@
 // Testing requests
 
+// Get all
 GET http://localhost:3000/customers
 
 ###
 
-GET http://localhost:3000/customers/64217a1da92626d47801f77b
+// Get one
+GET http://localhost:3000/customers/642182a85caa31e1771adf4d
 
 ###
 
-DELETE http://localhost:3000/customers/64217a1da92626d47801f77b
-
+// New customer
 POST http://localhost:3000/customers
 Content-Type: application/json
 
@@ -23,4 +24,19 @@ Content-Type: application/json
     "membership": true
 }
 
+###
 
+// Delete one
+DELETE http://localhost:3000/customers/64217eb96458be27e7992754
+
+
+###
+
+// Update
+
+PATCH http://localhost:3000/customers/642182a85caa31e1771adf4d
+Content-Type: application/json
+
+{
+    "name": "Essi Ostaja"
+}

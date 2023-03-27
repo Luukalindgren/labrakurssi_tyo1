@@ -36,15 +36,41 @@ router.post('/', async (req, res) => {
     }
 })
 
-// Updating existing customer (in progress)
-router.patch('/:id', getCustomer, (req, res) => {
-    
+// Updating existing customer
+router.patch('/:id', getCustomer, async (req, res) => {
+    if (req.body.name != null)  {
+        res.customer.name = req.body.name
+    }
+    if (req.body.dateOfBirth != null)  {
+        res.customer.dateOfBirth = req.body.dateOfBirth
+    }
+    if (req.body.joiningDate != null)  {
+        res.customer.joiningDate = req.body.joiningDate
+    }
+    if (req.body.phoneNumber != null)  {
+        res.customer.phoneNumber = req.body.phoneNumber
+    }
+    if (req.body.email != null)  {
+        res.customer.email = req.body.email
+    }
+    if (req.body.address != null)  {
+        res.customer.address = req.body.address
+    }
+    if (req.body.membership != null)  {
+        res.customer.membership = req.body.membership
+    }
+    try {
+        const updatedCustomer = await res.customer.save()
+        res.json(updatedCustomer)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 })
 
-// Deleting one customer (in progress)
+// Deleting one customer
 router.delete('/:id', getCustomer, async (req, res) => {
     try {
-        await res.customer.deleteOne()
+        await res.customer.deleteOne
         res.json({ message: 'Deleted customer' })
     } catch (error) {
         res.status(500).json({ message: error.message })
