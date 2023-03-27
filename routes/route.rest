@@ -1,7 +1,9 @@
 // Testing requests
 
+// GET all customers
 GET http://localhost:3000/customers
 
 ###
 
+// GET one customer
 GET http://localhost:3000/customers/1

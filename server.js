@@ -1,5 +1,7 @@
-require("dotenv").config(); // Load .env file
+// Load .env file
+require("dotenv").config();
 
+// Import modules
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -10,9 +12,11 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Database"));
 
-app.use(express.json())
+// Middleware
+app.use(express.json());
 
-const customersRouter = require('./routes/customers')
-app.use('/customers', customersRouter)
+// Routes
+const customersRouter = require("./routes/customers");
+app.use("/customers", customersRouter);
 
 app.listen(3000, () => console.log("Server Started"));
