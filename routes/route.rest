@@ -4,9 +4,11 @@ GET http://localhost:3000/customers
 
 ###
 
-GET http://localhost:3000/customers/1
+GET http://localhost:3000/customers/64217a1da92626d47801f77b
 
 ###
+
+DELETE http://localhost:3000/customers/64217a1da92626d47801f77b
 
 POST http://localhost:3000/customers
 Content-Type: application/json
@@ -20,3 +22,5 @@ Content-Type: application/json
     "address": "Asiakkaankatu 1",
     "membership": true
 }
+
+
