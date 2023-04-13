@@ -19,4 +19,7 @@ app.use(express.json());
 const customersRouter = require("./routes/customers");
 app.use("/customers", customersRouter);
 
+const itemsRouter = require("./routes/items")
+app.use("/items", itemsRouter);
+
 app.listen(3000, () => console.log("Server Started"));

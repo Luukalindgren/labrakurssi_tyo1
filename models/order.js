@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const Item = require('./item')
+const Customer = require('./customer')
 
 // Model for order
 const orderSchema = new mongoose.Schema({
@@ -6,13 +8,25 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    // ?????????????
-    items: {
-        type: Item,
+    customerId: {
+        type: Number,
+        ref: Customer,
         required: true
-    }
-
+    },
+    items: [
+        {
+            itemId: {
+                type: Number,
+                ref: Item,
+                require: true
+            },
+            quantity: {
+                type: Number,
+                required: true
+            }
+        }
+    ]
+    
 })
 
 module.exports = mongoose.model('Order', orderSchema)
