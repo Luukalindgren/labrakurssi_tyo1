@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Item = require('./item')
-const Customer = require('./customer')
 
 // Model for order
 const orderSchema = new mongoose.Schema({

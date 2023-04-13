@@ -1,19 +1,21 @@
 // Testing requests
 
-// Get all
-GET http://localhost:3000/customers
 
+
+// Customer tests
+
+
+// Get all customers
+GET http://localhost:3000/customers
 ###
 
-// Get one
+// Get one customer
 GET http://localhost:3000/customers/6437f82016e21be6928216dd
-
 ###
 
 // New customer
 POST http://localhost:3000/customers
 Content-Type: application/json
-
 {
     "customerId": "2000-03-25",
     "joiningDate": "2022-07-23",
@@ -22,56 +24,55 @@ Content-Type: application/json
     "address": "Asiakkaankatu 1",
     "membership": true
 }
-
 ###
 
-// Delete one
+// Delete one customer
 DELETE http://localhost:3000/customers/6437f5af5d676308fe9678b2
-
-
 ###
 
-// Update
-
+// Update one customer
 PATCH http://localhost:3000/customers/642182a85caa31e1771adf4d
 Content-Type: application/json
-
 {
     "name": "Essi Ostaja"
 }
-
-
 ###
 
+// Get customer's orders
+GET http://localhost:3000/orders/64217a22a92626d47801f77f
+###
+
+
+
+
+// Item tests
+
+
 // Get all items
-
 GET http://localhost:3000/items
-
 ###
 
 // Add new item
-
 POST http://localhost:3000/items/
 Content-Type: application/json
-
 {
     "name": "Nakki"
 }
-
 ###
 
 // Delete one item
-
 DELETE http://localhost:3000/items/6437f5af5d676308fe9678b2
-
-
 ###
 
-// Create new order
 
+
+
+// Order tests
+
+
+// Create new order
 POST http://localhost:3000/orders
 Content-Type: application/json
-
 {
     "customerId": "64217a22a92626d47801f77f",
     "items": [
@@ -79,23 +80,11 @@ Content-Type: application/json
         { "itemName": "Nakki", "quantity": 10}
     ]
 }
-
 ###
 
 // Get all orders
-
 GET http://localhost:3000/orders/
-
-
-###
-
-// Get one customer's orders
-
-GET http://localhost:3000/orders/64217a22a92626d47801f77f
-
-
 ###
 
 // Delete one order
-
 DELETE http://localhost:3000/orders/6437fed9a01735fa7c313527

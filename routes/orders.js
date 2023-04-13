@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Order = require('../models/order')
-const Customer = require('../models/customer')
 
 
 // Creating a new order
