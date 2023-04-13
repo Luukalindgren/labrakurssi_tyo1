@@ -22,6 +22,4 @@ app.use("/customers", customersRouter);
 const itemsRouter = require("./routes/items")
 app.use("/items", itemsRouter);
 
-const ordersRouter = require()
-
 app.listen(3000, () => console.log("Server Started"));
