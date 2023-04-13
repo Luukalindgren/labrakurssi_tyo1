@@ -32,15 +32,6 @@ const customerSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    orders: [
-        {
-            orderId: {
-                type: Number,
-                ref: Order,
-                require: true
-            }
-        }
-    ]
 })
 
 module.exports = mongoose.model('Customer', customerSchema)

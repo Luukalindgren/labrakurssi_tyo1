@@ -4,7 +4,7 @@ const Customer = require('./customer')
 
 // Model for order
 const orderSchema = new mongoose.Schema({
-    customerName: {
+    customerId: {
         type: String,
         required: true
     },

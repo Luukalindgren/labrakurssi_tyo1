@@ -73,10 +73,10 @@ POST http://localhost:3000/orders
 Content-Type: application/json
 
 {
-    "customerName": "Luuka",
+    "customerId": "64217a22a92626d47801f77f",
     "items": [
-        { "itemName": "Kakku", "quantity": 2},
-        { "itemName": "Pulla", "quantity": 10}
+        { "itemName": "Leipä", "quantity": 2},
+        { "itemName": "Nakki", "quantity": 10}
     ]
 }
 
@@ -84,5 +84,18 @@ Content-Type: application/json
 
 // Get all orders
 
-GET http://localhost:3000/orders
+GET http://localhost:3000/orders/
 
+
+###
+
+// Get one customer's orders
+
+GET http://localhost:3000/orders/64217a22a92626d47801f77f
+
+
+###
+
+// Delete one order
+
+DELETE http://localhost:3000/orders/6437fed9a01735fa7c313527

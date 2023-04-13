@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const Order = require('../models/order')
+const Customer = require('../models/customer')
 
 
 // Creating a new order
 router.post('/', async (req, res) => {
     const order = new Order({
-        customerName: req.body.customerName,
+        customerId: req.body.customerId,
         items: req.body.items
     })
     try {
@@ -38,10 +39,10 @@ router.delete('/:id', getOrder, async (req, res) => {
     }
 })
 
-// Get one customers orders
-router.get('/', async (req, res) => {
+// Get all orders by customerId
+router.get('/:id', async (req, res) => {
     try {
-        const orders = await Order.find()
+        const orders = await Order.find({customerId: req.params.id})
         res.json(orders)
     } catch (error) {
         res.status(500).json({ message: error.message })
