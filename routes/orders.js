@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 })
 
 // Get all orders
-router.get('/orders', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const orders = await Order.find()
         res.json(orders)
@@ -32,7 +32,7 @@ router.get('/orders', async (req, res) => {
 )
 
 // Deleting one order
-router.delete('/orders/:id', getOrder, async (req, res) => {
+router.delete('/:id', getOrder, async (req, res) => {
     try {
         await res.order.deleteOne
         res.json({ message: 'Deleted order' })
