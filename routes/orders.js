@@ -31,7 +31,6 @@ router.get('/orders', async (req, res) => {
 }
 )
 
-
 // Deleting one order
 router.delete('/orders/:id', getOrder, async (req, res) => {
     try {
