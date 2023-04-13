@@ -6,7 +6,7 @@ GET http://localhost:3000/customers
 ###
 
 // Get one
-GET http://localhost:3000/customers/6437f53639982524cd2fab55
+GET http://localhost:3000/customers/6437f82016e21be6928216dd
 
 ###
 
@@ -15,8 +15,7 @@ POST http://localhost:3000/customers
 Content-Type: application/json
 
 {
-    "name": "Luuka",
-    "dateOfBirth": "2000-03-25",
+    "customerId": "2000-03-25",
     "joiningDate": "2022-07-23",
     "phoneNumber": "0947504723",
     "email": "kalle.asiakas@email.net",
@@ -27,7 +26,7 @@ Content-Type: application/json
 ###
 
 // Delete one
-DELETE http://localhost:3000/customers/6437f53639982524cd2fab55
+DELETE http://localhost:3000/customers/6437f5af5d676308fe9678b2
 
 
 ###
@@ -41,6 +40,13 @@ Content-Type: application/json
     "name": "Essi Ostaja"
 }
 
+
+###
+
+// Get all items
+
+GET http://localhost:3000/items
+
 ###
 
 // Add new item
@@ -49,6 +55,34 @@ POST http://localhost:3000/items/
 Content-Type: application/json
 
 {
-    "name": "Hpdari",
-    "id": 12352345
+    "name": "Nakki"
 }
+
+###
+
+// Delete one item
+
+DELETE http://localhost:3000/items/6437f5af5d676308fe9678b2
+
+
+###
+
+// Create new order
+
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "customerName": "Luuka",
+    "items": [
+        { "itemName": "Kakku", "quantity": 2},
+        { "itemName": "Pulla", "quantity": 10}
+    ]
+}
+
+###
+
+// Get all orders
+
+GET http://localhost:3000/orders
+

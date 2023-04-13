@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Order = require('./order')
 
 // Model for customer
 const customerSchema = new mongoose.Schema({
@@ -30,7 +31,16 @@ const customerSchema = new mongoose.Schema({
     membership: {
         type: Boolean,
         required: true
-    }
+    },
+    orders: [
+        {
+            orderId: {
+                type: Number,
+                ref: Order,
+                require: true
+            }
+        }
+    ]
 })
 
 module.exports = mongoose.model('Customer', customerSchema)

@@ -26,7 +26,8 @@ router.post('/', async (req, res) => {
         phoneNumber: req.body.phoneNumber,
         email: req.body.email,
         address: req.body.address,
-        membership: req.body.membership
+        membership: req.body.membership,
+        orders: req.body.orders
     })
     try {
         const newCustomer = await customer.save()

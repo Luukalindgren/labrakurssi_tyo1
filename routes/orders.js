@@ -6,8 +6,7 @@ const Order = require('../models/order')
 // Creating a new order
 router.post('/', async (req, res) => {
     const order = new Order({
-        id: req.body.id,
-        customerId: req.body.customerId,
+        customerName: req.body.customerName,
         items: req.body.items
     })
     try {
@@ -38,6 +37,17 @@ router.delete('/:id', getOrder, async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
+// Get one customers orders
+router.get('/', async (req, res) => {
+    try {
+        const orders = await Order.find()
+        res.json(orders)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+)
 
 // Middleware
 async function getOrder(req, res, next) {
