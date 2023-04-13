@@ -38,3 +38,21 @@ router.delete('/:id', getItem, async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
+// Middleware
+async function getItem(req, res, next) {
+    let item
+    try {
+        item = await Item.findById(req.params.id)
+        if (item == null) {
+            return res.status(404).json({ message: 'Cannot find item'})
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+
+    res.item = item
+    next()
+}
+
+module.exports = router

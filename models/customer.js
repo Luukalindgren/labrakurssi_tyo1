@@ -30,9 +30,7 @@ const customerSchema = new mongoose.Schema({
     membership: {
         type: Boolean,
         required: true
-
     }
-    
 })
 
 module.exports = mongoose.model('Customer', customerSchema)
