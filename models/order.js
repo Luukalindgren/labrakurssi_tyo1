@@ -9,7 +9,7 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     customerId: {
-        type: Number,
+        type: String,
         ref: Customer,
         required: true
     },
