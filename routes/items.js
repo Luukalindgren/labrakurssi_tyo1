@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 // Deleting existing item
 router.delete('/:id', getItem, async (req, res) => {
     try {
-        await res.item.remove()
+        await res.item.deleteOne()
         res.json({ message: 'Deleted item' })
     } catch (error) {
         res.status(500).json({ message: error.message })

@@ -6,7 +6,7 @@ GET http://localhost:3000/customers
 ###
 
 // Get one
-GET http://localhost:3000/customers/64217a22a92626d47801f77f
+GET http://localhost:3000/customers/6437f53639982524cd2fab55
 
 ###
 
@@ -15,7 +15,7 @@ POST http://localhost:3000/customers
 Content-Type: application/json
 
 {
-    "name": "Kalle Asiakas",
+    "name": "Luuka",
     "dateOfBirth": "2000-03-25",
     "joiningDate": "2022-07-23",
     "phoneNumber": "0947504723",
@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 
 // Delete one
-DELETE http://localhost:3000/customers/6437e86d1f79592beea00470
+DELETE http://localhost:3000/customers/6437f53639982524cd2fab55
 
 
 ###

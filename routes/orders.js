@@ -32,14 +32,14 @@ router.get('/', async (req, res) => {
 // Deleting one order
 router.delete('/:id', getOrder, async (req, res) => {
     try {
-        await res.order.deleteOne
+        await res.order.deleteOne()
         res.json({ message: 'Deleted order' })
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 })
 
-// Middleware function for getting order object by ID
+// Middleware
 async function getOrder(req, res, next) {
     let order
     try {

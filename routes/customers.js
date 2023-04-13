@@ -70,7 +70,7 @@ router.patch('/:id', getCustomer, async (req, res) => {
 // Deleting one customer
 router.delete('/:id', getCustomer, async (req, res) => {
     try {
-        await res.customer.deleteOne
+        await res.customer.deleteOne()
         res.json({ message: 'Deleted customer' })
     } catch (error) {
         res.status(500).json({ message: error.message })
